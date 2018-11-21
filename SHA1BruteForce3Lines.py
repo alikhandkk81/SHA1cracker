@@ -1,0 +1,4 @@
+#Código de Python condensado para cracker hash sha1 - usando o operador ternário. Exemplo: <expression1> if <condition> else <expression2>
+from urllib.request import urlopen, hashlib; origin = input("Hash de entrada SHA1 para crack\n>")
+for password in str(urlopen('https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt').read(), 'utf-8').split('\n'):
+    [print("The password is ", str(password)), quit()] if (hashlib.sha1(bytes(password, 'utf-8')).hexdigest()) == origin else print("Senha não no banco de dados, vamos pegá-los da próxima vez.") if password == "" else print("Palpite de senha", str(password), " dnão combina, tentando próximo...")
